@@ -1,49 +1,143 @@
 $anticomyellow : #ffc806;
 
-@font-face {
-	font-family: "Anticom";
-	src: url('fonts/American Captain.otf');
+@mixin genericNone{
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
 }
 
-@font-face {
-	font-family: "Cocogoose";
-	src: url('fonts/Cocogoose_trial.otf');
+@mixin parallaxOuter($backgroundImage, $height) {
+	height: $height;
+	color: #ffc800;
+	//if no pic found:
+	background-color: black;
+	background: url($backgroundImage)repeat fixed 50%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+		 }
+
+@mixin parallaxInner {
+	width: 80%;
+	margin-top: 20%;
 }
 
-.logo-font{
-	font-family: "Anticom","Times New Roman";
-	font-size: 39pt;
-	color: $anticomyellow;
+@mixin navBottomBorder($color){
+	border-bottom: solid $color 2px;
+
 }
 
-.nav-font{
-	font-family: "Anticom","Times New Roman";
-	font-size: 30pt;
-	color: $anticomyellow;
+body{
+	background-color: #000000;
+	@include genericNone;
 }
 
-.hero-font{
-	font-family: "Anticom","Times New Roman";
-	font-size: 70pt;
-	color: white
+
+.navcontainer {
+	@include genericNone;
+	height: 75px;
+	.logo{
+		@include navBottomBorder($anticomyellow);
+		width: 40%;
+		height: 100%;
+		padding-top: .5%;
+		padding-left: 14%;
+		float: left;
+	}
+	.logo:hover{
+		@include navBottomBorder(#000);
+	}
+	nav {
+		height: inherit;
+		width: 100%;
+		position:fixed;
+		background-color:  #141519;
+		color: $anticomyellow;
+		ul {
+			height: inherit;
+			width: 60%;
+			float: right;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li{
+				@include navBottomBorder($anticomyellow);
+				position: relative;
+				display:inline-block;
+				height: inherit;
+				float: right;
+				width:33.3333%;
+				background-color: #141519;
+				text-align:center;
+				padding-top:2.5%;
+			}
+			li:hover{
+				@include navBottomBorder(#000);
+			}
+		}
+	}
 }
 
-.goal-content-font{
-	font-family: "Cocogoose","Times New Roman";
-	color: white;
-	font-size: 15pt;
+.hero	{
+	background-color: black;
+	@include parallaxOuter("anticomlogo.png",650px);
+
+	.inner-hero{
+		position: static;
+		padding-top: 15%;
+		padding-left: 15%;
+	}
 }
 
-.upper-mission-font{
-	font-family: "Anticom", "Times New Roman";
-	color: #141519;
-	font-size: 10rem;
+
+@mixin goalComponent($left,$right){
+	margin-top: 3%;
+	margin-right: $right;
+	margin-left: $left;
+	width: 30%;
+	height: 90%;
+	display: inline-block;
 	text-align: center;
+	line-height: 200%;
 }
 
-.lower-mission-font{
-	font-family: "Anticom", "Times New Roman";
-	color: #141519;
-	font-size: 28pt;
-	text-align: center;
+.goal-container{
+	@include genericNone;
+	height:600px;
+	width:100%;
+	color: black;
+
+	.left-container{
+		@include goalComponent(2.7%,0.5%);
+	}
+	.middle-container{
+		@include goalComponent(1.5%,1.5%);
+	}
+	.right-container{
+		@include goalComponent(0.5%,2.7%);
+	}
+}
+
+.goal-image{
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-bottom: 5%;
+}
+
+.mission-container{
+	@include genericNone;
+	height:80vh;
+	background-color: $anticomyellow;
+
+	.upper-mission{
+		@include genericNone;
+		height: 20%;
+	}
+	.lower-mission{
+		height:70%;
+		width: 96%;
+		padding-top: 5%;
+		padding-left: 2%;
+		padding-right: 2%;
+		padding-bottom: 5%;
+	}
 }
