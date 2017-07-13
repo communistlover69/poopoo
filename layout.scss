@@ -1,0 +1,49 @@
+$anticomyellow : #ffc806;
+
+@font-face {
+	font-family: "Anticom";
+	src: url('fonts/American Captain.otf');
+}
+
+@font-face {
+	font-family: "Cocogoose";
+	src: url('fonts/Cocogoose_trial.otf');
+}
+
+.logo-font{
+	font-family: "Anticom","Times New Roman";
+	font-size: 39pt;
+	color: $anticomyellow;
+}
+
+.nav-font{
+	font-family: "Anticom","Times New Roman";
+	font-size: 30pt;
+	color: $anticomyellow;
+}
+
+.hero-font{
+	font-family: "Anticom","Times New Roman";
+	font-size: 70pt;
+	color: white
+}
+
+.goal-content-font{
+	font-family: "Cocogoose","Times New Roman";
+	color: white;
+	font-size: 15pt;
+}
+
+.upper-mission-font{
+	font-family: "Anticom", "Times New Roman";
+	color: #141519;
+	font-size: 10rem;
+	text-align: center;
+}
+
+.lower-mission-font{
+	font-family: "Anticom", "Times New Roman";
+	color: #141519;
+	font-size: 28pt;
+	text-align: center;
+}
